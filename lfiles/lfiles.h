@@ -14,19 +14,19 @@
 
 #include <windows.h>
 
-HANDLE lena_GetFileHandle(char filename[]) {
-    return CreateFileA(filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+HANDLE llibs_GetFileHandle(char fillibsme[]) {
+    return CreateFileA(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 }
 
-HANDLE lena_GetMapHandle(HANDLE fileHandle) {
+HANDLE llibs_GetMapHandle(HANDLE fileHandle) {
     return CreateFileMapping(fileHandle, NULL, PAGE_READONLY, 0, 0, NULL);
 }
 
-LPCVOID lena_GetMapView(HANDLE mapHandle) {
+LPCVOID llibs_GetMapView(HANDLE mapHandle) {
     return MapViewOfFile(mapHandle, FILE_MAP_READ, 0, 0, 0);
 }
 
-LONGLONG lena_GetFileSize(HANDLE fileHandle) {
+LONGLONG llibs_GetFileSize(HANDLE fileHandle) {
     LARGE_INTEGER fileSize;
     if (!GetFileSizeEx(fileHandle, &fileSize)) {
         return -1;
@@ -39,73 +39,73 @@ typedef struct {
     HANDLE mapHandle;
     LPCVOID mapView;
     int64_t fileSize;
-} lena_file_t;
+} llibs_file_t;
 
-typedef uint8_t lena_file_status_t;
+typedef uint8_t llibs_file_status_t;
 
-enum lena_file_status{
-    LENA_FILE_SUCCESS               = 0,
-    LENA_FILE_OPEN_FAILURE          = 1,
-    LENA_FILE_MAP_HANDLE_FAILURE    = 2,
-    LENA_FILE_MAP_VIEW_FAILURE      = 3,
-    LENA_FILE_SIZE_FAILURE          = 4
+enum llibs_file_status{
+    LLIBS_FILE_SUCCESS               = 0,
+    LLIBS_FILE_OPEN_FAILURE          = 1,
+    LLIBS_FILE_MAP_HANDLE_FAILURE    = 2,
+    LLIBS_FILE_MAP_VIEW_FAILURE      = 3,
+    LLIBS_FILE_SIZE_FAILURE          = 4
 };
 
-lena_file_status_t lena_OpenFile(lena_file_t *lena_file, char filename[]){
-    lena_file->fileHandle = lena_GetFileHandle(filename);
-    if (lena_file->fileHandle == NULL) { 
-        CloseHandle(lena_file->fileHandle);
-        return LENA_FILE_OPEN_FAILURE; 
+llibs_file_status_t llibs_OpenFile(llibs_file_t *llibs_file, char fillibsme[]){
+    llibs_file->fileHandle = llibs_GetFileHandle(fillibsme);
+    if (llibs_file->fileHandle == NULL) { 
+        CloseHandle(llibs_file->fileHandle);
+        return LLIBS_FILE_OPEN_FAILURE; 
     }
-    lena_file->mapHandle = lena_GetMapHandle(lena_file->fileHandle);
-    if (lena_file->mapHandle == NULL) {
-        CloseHandle(lena_file->mapHandle);
-        CloseHandle(lena_file->fileHandle);
-        return LENA_FILE_MAP_HANDLE_FAILURE;
+    llibs_file->mapHandle = llibs_GetMapHandle(llibs_file->fileHandle);
+    if (llibs_file->mapHandle == NULL) {
+        CloseHandle(llibs_file->mapHandle);
+        CloseHandle(llibs_file->fileHandle);
+        return LLIBS_FILE_MAP_HANDLE_FAILURE;
     };
-    lena_file->mapView = lena_GetMapView(lena_file->mapHandle);
-    if (lena_file->mapView == NULL) {
-        UnmapViewOfFile(lena_file->mapView);
-        CloseHandle(lena_file->mapHandle);
-        CloseHandle(lena_file->fileHandle);
-        return LENA_FILE_MAP_VIEW_FAILURE;
+    llibs_file->mapView = llibs_GetMapView(llibs_file->mapHandle);
+    if (llibs_file->mapView == NULL) {
+        UnmapViewOfFile(llibs_file->mapView);
+        CloseHandle(llibs_file->mapHandle);
+        CloseHandle(llibs_file->fileHandle);
+        return LLIBS_FILE_MAP_VIEW_FAILURE;
     };
-    lena_file->fileSize = lena_GetFileSize(lena_file->fileHandle);
-    if (lena_file->fileSize == -1) {
-        UnmapViewOfFile(lena_file->mapView);
-        CloseHandle(lena_file->mapHandle);
-        CloseHandle(lena_file->fileHandle);
-        return LENA_FILE_SIZE_FAILURE; 
+    llibs_file->fileSize = llibs_GetFileSize(llibs_file->fileHandle);
+    if (llibs_file->fileSize == -1) {
+        UnmapViewOfFile(llibs_file->mapView);
+        CloseHandle(llibs_file->mapHandle);
+        CloseHandle(llibs_file->fileHandle);
+        return LLIBS_FILE_SIZE_FAILURE; 
     };
-    return LENA_FILE_SUCCESS;
+    return LLIBS_FILE_SUCCESS;
 }
 
-char* lena_GetFilePointer(lena_file_t lena_file){
-    return (char *)(lena_file.mapView);
+char* llibs_GetFilePointer(llibs_file_t llibs_file){
+    return (char *)(llibs_file.mapView);
 }
 
-void lena_DeleteFile(lena_file_t lena_file){
-    UnmapViewOfFile(lena_file.mapView);
-    CloseHandle(lena_file.mapHandle);
-    CloseHandle(lena_file.fileHandle);
+void llibs_DeleteFile(llibs_file_t llibs_file){
+    UnmapViewOfFile(llibs_file.mapView);
+    CloseHandle(llibs_file.mapHandle);
+    CloseHandle(llibs_file.fileHandle);
 }
 
 #else       /* LINUX / UNIX */
 
 #include <stdio.h>
 
-FILE* lena_GetfileHandle(char filename[]){
-    return fopen(filename, "rb");
+FILE* llibs_GetfileHandle(char fillibsme[]){
+    return fopen(fillibsme, "rb");
 }
 
-long lena_GetFileSize(FILE *file){
+long llibs_GetFileSize(FILE *file){
     fseek(file, 0, SEEK_END);
     long size = ftell(file);
     fseek(file, 0, SEEK_SET);
     return size;
 }
 
-char* lena_GetFileData(int64_t fileSize){
+char* llibs_GetFileData(int64_t fileSize){
     return malloc(fileSize);
 }
 
@@ -113,39 +113,39 @@ typedef struct {
     FILE *fileHandle;
     int64_t fileSize;
     char *filePointer;
-} lena_file_t;
+} llibs_file_t;
 
-typedef uint8_t lena_file_status_t;
+typedef uint8_t llibs_file_status_t;
 
-enum lena_file_status{
-    LENA_FILE_SUCCESS               = 0,
-    LENA_FILE_OPEN_FAILURE          = 1,
-    LENA_FILE_MEMORY_ALLOC_FAILURE  = 2,
+enum llibs_file_status{
+    LLIBS_FILE_SUCCESS               = 0,
+    LLIBS_FILE_OPEN_FAILURE          = 1,
+    LLIBS_FILE_MEMORY_ALLOC_FAILURE  = 2,
 };
 
-lena_file_status_t lena_OpenFile(lena_file_t *lena_file, char filename[]){
-    lena_file->fileHandle = lena_GetfileHandle(filename);
-    if (lena_file->fileHandle == NULL){
-        return LENA_FILE_OPEN_FAILURE;
+llibs_file_status_t llibs_OpenFile(llibs_file_t *llibs_file, char fillibsme[]){
+    llibs_file->fileHandle = llibs_GetfileHandle(fillibsme);
+    if (llibs_file->fileHandle == NULL){
+        return LLIBS_FILE_OPEN_FAILURE;
     }
-    lena_file->fileSize = lena_GetFileSize(lena_file->fileHandle);
-    lena_file->filePointer = lena_GetFileData(lena_file->fileSize);
-    if (lena_file->filePointer == NULL){
-        fclose(lena_file->fileHandle);
-        return LENA_FILE_MEMORY_ALLOC_FAILURE;
+    llibs_file->fileSize = llibs_GetFileSize(llibs_file->fileHandle);
+    llibs_file->filePointer = llibs_GetFileData(llibs_file->fileSize);
+    if (llibs_file->filePointer == NULL){
+        fclose(llibs_file->fileHandle);
+        return LLIBS_FILE_MEMORY_ALLOC_FAILURE;
     }
-    fread(lena_file->filePointer, 1, lena_file->fileSize, lena_file->fileHandle);
-    return LENA_FILE_SUCCESS;
+    fread(llibs_file->filePointer, 1, llibs_file->fileSize, llibs_file->fileHandle);
+    return LLIBS_FILE_SUCCESS;
 }
 
 
-char* lena_GetFilePointer(lena_file_t lena_file){
-    return (lena_file.filePointer);
+char* llibs_GetFilePointer(llibs_file_t llibs_file){
+    return (llibs_file.filePointer);
 }
 
-void lena_DeleteFile(lena_file_t lena_file){
-    fclose(lena_file.fileHandle);
-    free(lena_file.filePointer);
+void llibs_DeleteFile(llibs_file_t llibs_file){
+    fclose(llibs_file.fileHandle);
+    free(llibs_file.filePointer);
 }
 
 #endif
