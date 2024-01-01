@@ -5,7 +5,7 @@
  * @file     ldtypes.h
  * @brief    Project L - Cross-platform dynamic type library (for Lina/Lena/Lisa langs)
  * @version  V0.0.1
- * @date     31. Dec 2023
+ * @date     01. Jan 2024
  ******************************************************************************/
 
 /* EXPERIMENT */
