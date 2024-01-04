@@ -111,8 +111,6 @@ ldt _to_tuple(ldt_type map[], size_t n, ...){
         // -> DATA ERROR
     }
 
-    printf("Before writing!");
-
     size_t shift = 0;
     va_list args;
     va_start(args, n);
@@ -170,5 +168,25 @@ void free_tuple(ldt* tuple){
     }
 }
 
+
+/* Other functions */
+
+/*
+ldt_error_t push_tuple(ldt* tuple, int n, ...){
+    if (tuple->data != NULL && tuple->map != NULL) {
+        
+    } else {
+        return get_tuple_error(*tuple);
+    }
+}
+
+void* pop_tuple(ldt* tuple, int n, ...){
+    if (tuple->data != NULL && tuple->map != NULL) {
+        
+    } else {
+        return get_tuple_error(*tuple);
+    }
+}
+*/
 
 #endif // __L_TUPLES_H__
