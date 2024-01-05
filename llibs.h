@@ -1,5 +1,5 @@
-#ifndef __L_FILES_H__
-#define __L_FILES_H__
+#ifndef __L_LIBS_H__
+#define __L_LIBS_H__
 
 /**************************************************************************//**
  * @file     llibs.h
@@ -18,4 +18,4 @@
 /* LTUPLES */
 #include "ltuples/ltuples.h"
 
-#endif // __L_FILES_H__
+#endif // __L_LIBS_H__
