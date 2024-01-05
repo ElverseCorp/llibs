@@ -134,7 +134,7 @@ ldt _to_tuple(ldt_type map[], size_t n, ...){
                 break;
             case TYPE_F:
             case TYPE_D:
-                (*(double *)(data + shift)) = va_arg(args, uint64_t);
+                (*(double *)(data + shift)) = va_arg(args, double);
                 shift += (size_t)(ldt_type_sizes[map[i]]);
                 break;
             case TYPE_LD:
