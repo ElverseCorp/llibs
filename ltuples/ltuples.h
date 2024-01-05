@@ -94,11 +94,11 @@ typedef enum {
 ldt_error_t get_tuple_error(ldt tuple){
     uint8_t er_code = 0b00000000;
     er_code |= (((bool)(tuple.data) << 0) | ((bool)(tuple.map) << 1));
-    return er_code;
+    return (ldt_error_t)(er_code);
 }
 
 ldt _to_tuple(ldt_type map[], size_t n, ...){
-    if (map == NULL) { return (ldt){NULL, 0, (void*)(1), 0};
+    if (map == NULL) { return (ldt){NULL, 0, (ldt_type *)(void*)(1), 0};
         // -> DATA ERROR
     }
     size_t size = 0; // size in bytes
@@ -107,7 +107,7 @@ ldt _to_tuple(ldt_type map[], size_t n, ...){
         // -> ARG ERROR
     }
     void* data = malloc(size);
-    if (data == NULL) { return (ldt){NULL, 0, (void*)(1), 0};
+    if (data == NULL) { return (ldt){NULL, 0, (ldt_type *)(void*)(1), 0};
         // -> DATA ERROR
     }
 
