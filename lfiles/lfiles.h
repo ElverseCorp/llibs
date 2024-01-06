@@ -18,7 +18,7 @@
 #include <windows.h>
 
 HANDLE llibs_GetFileHandle(char fillibsme[]) {
-    return CreateFileA(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    return CreateFile(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 }
 
 HANDLE llibs_GetMapHandle(HANDLE fileHandle) {
