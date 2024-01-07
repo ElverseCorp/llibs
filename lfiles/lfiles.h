@@ -4,11 +4,11 @@
 /**************************************************************************//**
  * @file     lfiles.h
  * @brief    Project L - Cross-platform files library (for Lina/Lena/Lisa langs)
- * @version  V0.0.1
+ * @version  V0.0.3
  * @date     31. Dec 2023
  ******************************************************************************/
 
-
+/* Standard libraries */
 #include <stdlib.h>
 #include <stdint.h>
 
@@ -17,9 +17,16 @@
 
 #include <windows.h>
 
-HANDLE llibs_GetFileHandle(char fillibsme[]) {
-    return CreateFile(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+#ifdef UNICODE
+#include <wchar.h>
+HANDLE llibs_GetFileHandle(wchar_t fillibsme[]) {
+    return CreateFileW(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 }
+#else 
+HANDLE llibs_GetFileHandle(char fillibsme[]) {
+    return CreateFileA(fillibsme, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+}
+#endif
 
 HANDLE llibs_GetMapHandle(HANDLE fileHandle) {
     return CreateFileMapping(fileHandle, NULL, PAGE_READONLY, 0, 0, NULL);
@@ -54,7 +61,14 @@ enum llibs_file_status{
     LLIBS_FILE_SIZE_FAILURE          = 4
 };
 
-llibs_file_status_t llibs_OpenFile(llibs_file_t *llibs_file, char fillibsme[]){
+llibs_file_status_t llibs_OpenFile(
+    llibs_file_t *llibs_file, 
+#ifdef UNICODE
+    wchar_t fillibsme[]
+#else
+    char fillibsme[]
+#endif
+    ){
     llibs_file->fileHandle = llibs_GetFileHandle(fillibsme);
     if (llibs_file->fileHandle == NULL) { 
         CloseHandle(llibs_file->fileHandle);
