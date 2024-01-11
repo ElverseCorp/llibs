@@ -8,9 +8,14 @@
  * @date     5. Jan 2024
  ******************************************************************************/
 
+/* LTYPES */
+#include "ltypes/ltypes.h"
 
 /* LDTYTPES */
 #include "ldtypes/ldtypes.h"
+
+/* LDTYTPES x64 */
+#include "ldtypes/ldtypes_x64.h"
 
 /* LFILES */
 #include "lfiles/lfiles.h"
