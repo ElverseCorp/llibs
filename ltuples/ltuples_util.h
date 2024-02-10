@@ -3,7 +3,7 @@
 
 /**************************************************************************//**
  * @file     ltuples_util.h
- * @brief    Project L - Macroses for ltuples library (for Lina/Lena/Lisa langs)
+ * @brief    Project L - Macroses for ltuples library (for Lena lang)
  * @version  V0.0.1
  * @date     4. Jan 2024
  ******************************************************************************/

@@ -3,7 +3,7 @@
 
 /**************************************************************************//**
  * @file     lfiles.h
- * @brief    Project L - Cross-platform files library (for Lina/Lena/Lisa langs)
+ * @brief    Project L - Cross-platform files library (for Lena lang)
  * @version  V0.0.3
  * @date     31. Dec 2023
  ******************************************************************************/
@@ -11,6 +11,9 @@
 /* Standard libraries */
 #include <stdlib.h>
 #include <stdint.h>
+
+/* Llibs */
+#include "ltypes.h"
 
 /* For Windows */
 #ifdef _WIN32

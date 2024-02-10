@@ -3,7 +3,7 @@
 
 /**************************************************************************//**
  * @file     ldtypes.h
- * @brief    Project L - Cross-platform dynamic type library (for Lina/Lena/Lisa langs)
+ * @brief    Project L - Cross-platform dynamic type library (for Lena lang)
  * @version  V0.0.1
  * @date     01. Jan 2024
  ******************************************************************************/
