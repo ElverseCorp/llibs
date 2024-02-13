@@ -2,7 +2,7 @@
 
 ## Instruction
 
-* Check your platform in list and in header file: [platform.h]("../../../../platforms/platform.h") and [platform.md]("../../../../platforms/platform.md)
+* Check your platform in list and in header file: [platform.h]("../../../../platforms/platform.h) and [platform.md]("../../../../platforms/platform.md)
 
 * Set correct arguments for your specific platform. For examlple:
 
