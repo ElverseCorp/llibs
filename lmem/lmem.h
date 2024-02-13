@@ -11,22 +11,18 @@
 /* Standard libraries */
 #include <stdlib.h>
 
+/* Platform */
+#include "platforms/platform.h"
+
 /* Functions */
 
-void* lmalloc(size_t size) {
-    return malloc(size);
-}
-
-void* lcalloc(size_t num, size_t size) {
-    return calloc(num, size);
-}
-
-void* lrealloc(void* mem, size_t size) {
-    return realloc(mem, size);
-}
-
-void* lrecalloc(void* mem, size_t num, size_t size) {
-    return _recalloc(mem, num, size);
-}
+#ifdef __LMEM_SPT__
+extern void* lmalloc(size_t size);
+extern void* lcalloc(size_t num, size_t size);
+extern void* lrealloc(void* mem, size_t size);
+extern void* lrecalloc(void* mem, size_t num, size_t size);
+#else
+#warning "[llibs.h] -> [lmem.h]: Platform doesn't support memory allocation!"
+#endif
 
 #endif // __L_MEMORY_H__

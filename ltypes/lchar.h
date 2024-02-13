@@ -11,7 +11,6 @@
 /* Standard libraries */
 #include <stdint.h>
 
-
 /* Types for different UTF */
 typedef uint32_t lchar32_t;
 typedef uint16_t lchar16_t;
@@ -24,7 +23,10 @@ typedef uint8_t  lchar8_t;
 #include <wchar.h>
 typedef wchar_t lnchar_t;
 #else /* LINUX */
-typedef char16_t lnchar_t;
+typedef lchar16_t lnchar_t;
 #endif
+
+/* General type */
+typedef lchar8_t lchar_t;
 
 #endif // __L_CHAR_H__

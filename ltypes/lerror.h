@@ -14,10 +14,10 @@
 /* Type */
 typedef uint8_t lerror_t;
 
-typedef enum {
-    LLIBS_OK = 1,
-    LLIBS_ERROR = 0,
-    // ... other codes
-} lerror_codes_t;
+enum lerror_codes_t{
+    LLIBS_OK    = 0x00,
+    LLIBS_ERROR = 0x01,
+    // ... other codes (max = 0xFF/255)
+};
 
 #endif // __L_TYPES_ERROR_H__

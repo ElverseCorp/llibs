@@ -13,17 +13,22 @@
 #include <stdint.h>
 
 /* Llibs */
-#include "ltypes.h"
+#include "../ltypes/ltypes.h"
 
 /* Platform */
 #include "platforms/platform.h"
 
 /* Standard functions */
 
-extern lerrot_t llibs_open(lfile_t lchar_t name); 
+#ifdef __LFILES_SPT__
 
-extern lerrot_t llibs_open(lchar_t name); 
+extern lerror_t lopen(lfile_t* file, lchar_t* name); 
+extern lerror_t lclose(lfile_t* file); 
 
-extern lerrot_t llibs_close(lchar_t name); 
+#else // If lfiles lib isn't supported
+#warning "[llibs.h] -> [lfiles.h]: Functions aren't supported! Check your platform."
+#endif 
+
+/* To get data pointer use (lfile_t) file.data */
 
 #endif // __L_FILES_H__
