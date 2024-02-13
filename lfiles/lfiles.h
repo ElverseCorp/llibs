@@ -15,11 +15,15 @@
 /* Llibs */
 #include "ltypes.h"
 
-/* Data types */
-
+/* Platform */
+#include "platforms/platform.h"
 
 /* Standard functions */
 
-extern 
+extern lerrot_t llibs_open(lfile_t lchar_t name); 
+
+extern lerrot_t llibs_open(lchar_t name); 
+
+extern lerrot_t llibs_close(lchar_t name); 
 
 #endif // __L_FILES_H__

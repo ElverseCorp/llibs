@@ -11,4 +11,8 @@
 /* LCHAR.h */
 #include "lchar.h"
 
+/* LERROR.h */
+#include "lerror.h"
+
+
 #endif // __L_TYPES_H__

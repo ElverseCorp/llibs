@@ -15,8 +15,8 @@
 typedef uint8_t lerror_t;
 
 typedef enum {
-    LENA_OK = 1,
-    LENA_ERROR = 0,
+    LLIBS_OK = 1,
+    LLIBS_ERROR = 0,
     // ... other codes
 } lerror_codes_t;
 
