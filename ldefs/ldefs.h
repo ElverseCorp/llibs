@@ -24,8 +24,8 @@
 typedef uint8_t lexit_code_t;
 
 enum lexit_codes {
-    LENA_EXIT_SUCCESS = 0x00,
-    LENA_EXIT_FAILURE = 0x01,
+    LLIBS_EXIT_SUCCESS = 0x00,
+    LLIBS_EXIT_FAILURE = 0x01,
     // ... other codes (max = 0xFF/255)
 };
 
