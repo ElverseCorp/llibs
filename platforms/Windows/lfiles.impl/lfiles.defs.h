@@ -8,6 +8,8 @@
  * @date     13. Feb 2023
  ******************************************************************************/
 
+#define __LFILES_SPT__
+
 #include <windows.h>
 
 typedef struct {
