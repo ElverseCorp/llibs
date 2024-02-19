@@ -16,4 +16,7 @@
 /* lthreads.h */
 #include "threads.impl/threads.defs.h"
 
+/* lmem.h */
+#include "lmem.impl/lmem.defs.h"
+
 #endif // __L_LINUX_H__
