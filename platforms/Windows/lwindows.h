@@ -8,6 +8,13 @@
  * @date     13. Feb 2023
  ******************************************************************************/
 
+/* Include native libraries */
+
+/* lfiles.h */
+#include "lfiles.impl/lfiles.defs.h"
+
+/* lthreads.h */
+#include "threads.impl/threads.defs.h"
 
 
 #endif // __L_WINDOWS_H__

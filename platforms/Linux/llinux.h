@@ -13,7 +13,7 @@
 /* lfiles.h */
 #include "lfiles.impl/lfiles.defs.h"
 
-/* lfiles.h */
-#include "lfiles.impl/lfiles.defs.h"
+/* lthreads.h */
+#include "threads.impl/threads.defs.h"
 
 #endif // __L_LINUX_H__
