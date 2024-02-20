@@ -7,7 +7,10 @@
         "*.tcc": "cpp",
         "tuple": "cpp",
         "type_traits": "cpp",
-        "lthreads.defs.h": "c"
+        "lthreads.defs.h": "c",
+        "string.h": "c",
+        "wchar.h": "c",
+        "lchar.defs.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

@@ -9,6 +9,8 @@
  ******************************************************************************/
 
 /* Standard libraries */
+#include <stdlib.h>
+#include <stdlib.h>
 #include <stdint.h>
 
 /* Types for different UTF */
@@ -16,17 +18,14 @@ typedef uint32_t lchar32_t;
 typedef uint16_t lchar16_t;
 typedef uint8_t  lchar8_t;
 
-/* Native type */
-
-/* For Windows */
-#ifdef _WIN32
-#include <wchar.h>
-typedef wchar_t lnchar_t;
-#else /* LINUX */
-typedef lchar16_t lnchar_t;
-#endif
-
 /* General type */
 typedef lchar8_t lchar_t;
+
+/* --- Native type --- */
+
+/* Include platform selector */
+#include "platforms/platform.h"
+
+export size_t llen(lnchar_t string[]);
 
 #endif // __L_CHAR_H__
