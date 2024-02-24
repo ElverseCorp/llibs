@@ -4,37 +4,18 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/usr/include/x86_64-linux-gnu"
+                "${workspaceFolder}/cross/include"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:/Program Files/MinGW/bin/gcc.exe",
+            "windowsSdkVersion": "10.0.22621.0",
+            "compilerPath": "cl.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-gcc-x86"
-        },
-        {
-            "name": "Linux",
-            "includePath": [
-                "/home/robotsvision/projects/llibs/**"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "linux-gcc-x64",
-            "compilerPathInCppPropertiesJson": "/usr/bin/gcc",
-            "mergeConfigurations": false,
-            "browse": {
-                "path": [
-                    "/home/robotsvision/projects/llibs/**",
-                    "${workspaceFolder}"
-                ],
-                "limitSymbolsToIncludedHeaders": true
-            }
+            "intelliSenseMode": "windows-msvc-x64"
         }
     ],
     "version": 4
