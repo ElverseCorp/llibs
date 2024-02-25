@@ -14,4 +14,12 @@ typedef li32 lm;
 /* Standard main protorype */
 extern lm lmain(lu32 argc, lc8* argv[]);
 
+typedef enum {
+    L_EXIT_SUCCESS = 0x00,
+    L_EXIT_FAILURE = 0x01,
+    // other codes...
+} lerr_exit;
+
+extern void lexit(lerr_exit status);
+
 #endif // LLIBS_FRAMEWORK_MAIN_H_

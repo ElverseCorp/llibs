@@ -40,4 +40,10 @@ typedef uint32_t lc32;
 /* Common char type */
 typedef lc8 lc;
 
+/* Error type */
+typedef enum {
+    L_OK    = 0x00,
+    L_ERROR = 0x01,
+} lerr;
+
 #endif // LLIBS_FRAMEWORK_H_

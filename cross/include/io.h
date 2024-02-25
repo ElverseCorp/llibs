@@ -22,7 +22,7 @@
  * 
  * @param[in] str string address 
 */
-extern void cout(lc str[]);
+extern void lcout(lc str[]);
 
 /** 
  * @brief Prints len characters in the console in the coding UTF-8.
@@ -31,7 +31,7 @@ extern void cout(lc str[]);
  * @param[in] str string address
  * @param[in] len number of symbols
 */
-extern void coutn(lc str[], lsz len);
+extern void lcoutn(lc str[], lsz len);
 
 /** 
  * @brief Prints a line in the UTF-8 encoding console error stream
@@ -40,7 +40,7 @@ extern void coutn(lc str[], lsz len);
  * 
  * @param[in] str string address 
 */
-extern void cerr(lc str[]);
+extern void lcerr(lc str[]);
 
 /** 
  * @brief Prints len characters in the console error stream in the coding UTF-8.
@@ -49,7 +49,7 @@ extern void cerr(lc str[]);
  * @param[in] str string address
  * @param[in] len number of symbols
 */
-extern void cerrn(lc str[], lsz len);
+extern void lcerrn(lc str[], lsz len);
 
 /** 
  * @brief Receive string in UTF-8 from console to the feet of sep
@@ -58,7 +58,7 @@ extern void cerrn(lc str[], lsz len);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void cin(lc* dest, lc sep);
+extern void lcin(lc* dest, lc sep);
 
 /** 
  * @brief Receive len symbols from console in UTF-8
@@ -67,9 +67,34 @@ extern void cin(lc* dest, lc sep);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void cinn(lc* dest, lsz len);
+extern void lcinn(lc* dest, lsz len);
 
 
 /* Files */
+
+typedef struct lfile lfile;
+
+/** 
+ * @brief Opens a file by name and stores its data in file
+ * 
+ * 
+ * @param[in] filename name of file in UTF-8 encode
+ * @param[out] file file structure pointer
+*/
+extern lerr lfopen(lc filename[], lfile* file);
+
+/** 
+ * @brief Gets the pointer to file data
+ *
+ * @param[in] file file structure pointer
+*/
+extern lerr lfget(lfile* file);
+
+/** 
+ * @brief Closes file and clear file structure
+ *
+ * @param[out] file file structure pointer
+*/
+extern lerr lfclose(lfile* file);
 
 #endif // LLIBS_FRAMEWORK_IO_H_

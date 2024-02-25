@@ -16,7 +16,10 @@
 #include "types.h"
 #include "thread.h"
 
+#include "mem.h"
 #include "io.h"
+
+#include "main.h"
 
 #else /* ERROR (__STDC_VERSION__ >= 201112L) */
 #error [llibs.h]: Requires at least version C 2011 (__STDC_VERSION__ >= 201112L)
