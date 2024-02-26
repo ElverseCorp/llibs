@@ -5,6 +5,9 @@
         "defs.h": "c",
         "mem.h": "c",
         "string.h": "c",
-        "llibs.h": "c"
+        "llibs.h": "c",
+        "array": "c",
+        "string_view": "c",
+        "initializer_list": "c"
     }
 }

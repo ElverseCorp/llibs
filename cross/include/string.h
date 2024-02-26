@@ -35,6 +35,16 @@ extern lsz lslen(lc* str);
 extern lsz lssize(lc* str);
 
 /** 
+  * @brief Calculate size in bytes based on number of characters
+  * 
+  * @param[in] str string pointer
+  * @param[in] n number of symbols
+  * @return Size in bytes
+  * 
+  */
+extern lsz lssizen(lc* str, lsz n);
+
+/** 
   * @brief Compare two strings in UTF-8
   * 
   * @param[in] str1 string 1 pointer

@@ -5,12 +5,12 @@
 /* Console */
 
 void lcout(lc str[]) {
-    fwrite(str, sizeof(lc), lslen(str), stdout);
+    fwrite(str, sizeof(lc), lssize(str), stdout);
 }
 
 
 void lcoutn(lc str[], lsz len) {
-    //fwrite(str, sizeof(lc), , stdout);
+    fwrite(str, sizeof(lc), lssizen(str, len), stdout);
 }
 
 

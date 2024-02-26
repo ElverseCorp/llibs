@@ -17,7 +17,7 @@
 /** 
  * @brief Native data type for callback function
  */
-typedef lthread_func lthread_func;
+typedef struct lthread_func lthread_func;
 
 /** 
  * @brief Native structure for thread data
