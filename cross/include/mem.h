@@ -6,7 +6,8 @@
  * @brief    Project L - Llibs, cross-platform framework / mem.h
  * @version  V0.2.0
  * @date     5. Jan 2024
- ******************************************************************************/
+ * @author   Matvey Rybalkin
+******************************************************************************/
 
 /* Llibs */
 #include "llibs.h"

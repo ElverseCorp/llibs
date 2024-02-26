@@ -6,7 +6,8 @@
  * @brief    Project L - Llibs, cross-platform framework / string.h
  * @version  V0.2.0
  * @date     5. Jan 2024
- ******************************************************************************/
+ * @author   Matvey Rybalkin
+******************************************************************************/
 
 /* Llibs */
 #include "llibs.h"
@@ -72,6 +73,9 @@ extern void lcinn(lc* dest, lsz len);
 
 /* Files */
 
+/** 
+ * @brief Native structure for file data
+ */
 typedef struct lfile lfile;
 
 /** 

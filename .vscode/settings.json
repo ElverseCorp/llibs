@@ -2,6 +2,9 @@
     "files.associations": {
         "types.h": "c",
         "main.h": "c",
-        "defs.h": "c"
+        "defs.h": "c",
+        "mem.h": "c",
+        "string.h": "c",
+        "llibs.h": "c"
     }
 }

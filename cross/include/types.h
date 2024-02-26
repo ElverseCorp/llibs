@@ -6,12 +6,14 @@
  * @brief    Project L - Llibs, cross-platform framework / main.h
  * @version  V0.2.0
  * @date     5. Jan 2024
- ******************************************************************************/
+ * @author   Matvey Rybalkin
+******************************************************************************/
 
 /* Llibs */
 #include "llibs.h"
 
 /* Standard libraries */
+#include <stdlib.h>
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -44,6 +46,7 @@ typedef lc8 lc;
 typedef enum {
     L_OK    = 0x00,
     L_ERROR = 0x01,
+    // You can extend this
 } lerr;
 
 #endif // LLIBS_FRAMEWORK_H_

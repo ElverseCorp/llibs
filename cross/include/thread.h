@@ -6,13 +6,40 @@
  * @brief    Project L - Llibs, cross-platform framework / string.h
  * @version  V0.2.0
  * @date     5. Jan 2024
- ******************************************************************************/
+ * @author   Matvey Rybalkin
+******************************************************************************/
 
 /* Llibs */
 #include "llibs.h"
 
+/* Standard types */
+
+/** 
+ * @brief Native data type for callback function
+ */
+typedef lthread_func lthread_func;
+
+/** 
+ * @brief Native structure for thread data
+ */
+typedef struct lthread lthread;
+
 /* Standard functions */
-extern lbool lthread_new(lc* str1, lc* str2);
-extern lbool lthread_join(lc* dest, const lc* src);
+
+/** 
+ * @brief Creates new thread, based on callback function
+ * 
+ * @param[out] thread thread data pointer
+ * @param[in] func callback function pointer
+ * @return Error status (OK/ERROR)
+*/
+extern lerr lthread_new(lthread* thread, lthread_func* func);
+
+/** 
+ * @brief Join thread, wait for the end
+ * 
+ * @param[out] thread thread data pointer
+*/
+extern void lthread_join(lthread* thread);
 
 #endif // LLIBS_FRAMEWORK_THREAD_H_

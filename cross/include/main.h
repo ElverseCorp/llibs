@@ -6,7 +6,8 @@
  * @brief    Project L - Llibs, cross-platform framework / main.h
  * @version  V0.0.1
  * @date     24. Feb 2024
- ******************************************************************************/
+ * @author   Matvey Rybalkin
+******************************************************************************/
 
 /* Standard main function type */
 typedef li32 lm;

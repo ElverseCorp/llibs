@@ -37,5 +37,5 @@ int wmain(int argc, wchar_t* argv[]) {
     }
     lm state = lmain(argc, argv_utf8);
     free(argv_utf8);
-    return state;
+    return (int)(state);
 }
