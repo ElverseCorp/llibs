@@ -9,9 +9,6 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
-/* Llibs */
-#include "llibs.h"
-
 /* Standard libraries */
 #include <stdlib.h>
 #include <stdint.h>

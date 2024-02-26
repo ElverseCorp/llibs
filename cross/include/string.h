@@ -9,6 +9,9 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
+/* Include libraries */
+#include "types.h"
+
 /** 
   * @brief UTF-8 string literal prefix
   */

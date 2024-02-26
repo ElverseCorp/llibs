@@ -8,6 +8,7 @@
         "llibs.h": "c",
         "array": "c",
         "string_view": "c",
-        "initializer_list": "c"
+        "initializer_list": "c",
+        "stdint.h": "c"
     }
 }
