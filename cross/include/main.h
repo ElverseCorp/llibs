@@ -9,6 +9,8 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
+/* Must be included in llibs.h */
+
 /* Standard main function type */
 typedef li32 lm;
 

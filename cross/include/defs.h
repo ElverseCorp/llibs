@@ -9,6 +9,8 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
+/* Must be included in llibs.h */
+
 /** 
   * @brief Useful macros, cycle for alternative.
   * 

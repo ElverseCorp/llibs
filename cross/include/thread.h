@@ -9,8 +9,7 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
-/* Llibs */
-#include "llibs.h"
+/* Must be included in llibs.h */
 
 /* Standard types */
 

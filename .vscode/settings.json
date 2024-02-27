@@ -9,6 +9,8 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "stdint.h": "c"
+        "stdint.h": "c",
+        "lingua.h": "c",
+        "utf8.h": "c"
     }
 }

@@ -9,6 +9,8 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
+/* Must be included in llibs.h */
+
 /* Include libraries */
 #include "types.h"
 
