@@ -10,16 +10,17 @@ void lcout(lc str[]) {
 
 
 void lcoutn(lc str[], lsz len) {
-    fwrite(str, sizeof(lc), lssizen(str, len), stdout);
+    fwrite(str, sizeof(lc), lssstdoutizen(str, len), stdout);
 }
 
 
 void lcerr(lc str[]) {
-
+    fwrite(str, sizeof(lc), lssize(str), stderr);
 }
 
 
 void lcerrn(lc str[], lsz len) {
+    fwrite(str, sizeof(lc), lssstdoutizen(str, len), stderr);
 
 }
 
