@@ -21,6 +21,8 @@
 #include "io.h"
 #include "main.h"
 
+extern lerr llibs_init(void); 
+
 /* Include external submodules */
 
 #include "../../external/external.h"

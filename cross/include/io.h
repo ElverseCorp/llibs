@@ -16,6 +16,15 @@
 /* Console */
 
 /** 
+ * @brief Initializes console input/output
+ * 
+ * This function was created for specific platform like Windows
+ * 
+ * @return status L_OK or L_ERROR
+*/
+extern lerr lcio_init(void);
+
+/** 
  * @brief Prints a line in the UTF-8 encoding console 
  * 
  * The line should end '\0' for correct processing. 
