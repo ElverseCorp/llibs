@@ -27,12 +27,12 @@ lerr lcio_init(void) {
 
 
 void lcout(lc str[]) {
-    WriteConsoleW(hcout, str, lslen(str), NULL, NULL);
+    WriteConsoleA(hcout, str, lssize(str), NULL, NULL);
 }
 
 
 void lcoutn(lc str[], lsz len) {
-    WriteConsoleW(hcout, str, lssizen(str, len), NULL, NULL);
+    WriteConsoleA(hcout, str, lssizen(str, len), NULL, NULL);
 }
 
 

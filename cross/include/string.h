@@ -17,7 +17,7 @@
 /** 
   * @brief UTF-8 string literal prefix
   */
-#define X (lc *)
+#define X(str) (lc *)(str)
 
 /* Standard functions */
 
