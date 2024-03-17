@@ -19,6 +19,7 @@
 #include "thread.h"
 #include "mem.h"
 #include "io.h"
+#include "file.h"
 #include "main.h"
 
 extern lerr llibs_init(void); 

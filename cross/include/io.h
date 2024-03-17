@@ -138,4 +138,13 @@ extern lerr lfget(lfile* file);
 */
 extern lerr lfclose(lfile* file);
 
+/** 
+ * @brief Creates file and stores its data in file
+ * 
+ * 
+ * @param[in] filename name of file in UTF-8 encode
+ * @param[out] file file structure pointer
+*/
+extern lerr lfcreate(lc filename[], lfile* file);
+
 #endif // LLIBS_FRAMEWORK_IO_H_

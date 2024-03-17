@@ -1,6 +1,5 @@
 /* Include llibs.h header */
 #include <llibs.h>
-#include <stdio.h>
 #include <windows.h>
 
 /* Console */
@@ -48,7 +47,7 @@ void lcerrn(lc str[], lsz len) {
 void lcin(lc* dest, lc sep) {
     lc sym;
     do {
-        fread(&sym, sizeof(lc), 1, stdin); 
+        //fread(&sym, sizeof(lc), 1, stdin); 
         (*dest) = sym;
         ++dest;
     } while (sym != sep);
