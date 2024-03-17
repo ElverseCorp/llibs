@@ -106,7 +106,7 @@ const static WORD color_bg_lookup[] = {
 };
 
 void lccol(lccolor text, lccolor bg) {
-    SetConsoleTextAttribute(hcout, (color_bg_lookup[bg] << 4) | color_text_lookup[bg]);
+    SetConsoleTextAttribute(hcout, (WORD)(color_bg_lookup[bg] | color_text_lookup[text]));
 }
 
 
