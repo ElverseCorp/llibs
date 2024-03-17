@@ -78,6 +78,35 @@ extern void lcin(lc* dest, lc sep);
 */
 extern void lcinn(lc* dest, lsz len);
 
+/** 
+ * @brief Color type.
+*/
+typedef enum {
+    LC_COLOR_BLACK          = 0,
+    LC_COLOR_WHITE          = 1,
+    LC_COLOR_RED            = 2,
+    LC_COLOR_DARK_RED       = 3,
+    LC_COLOR_GREEN          = 4,
+    LC_COLOR_DARK_GREEN     = 5,
+    LC_COLOR_BLUE           = 6,
+    LC_COLOR_DARK_BLUE      = 7,
+    LC_COLOR_GRAY           = 8,
+    LC_COLOR_DARK_GRAY      = 9,
+    LC_COLOR_MAGNETA        = 10,
+    LC_COLOR_DARK_MAGNETA   = 11,
+    LC_COLOR_YELLOW         = 12,
+    LC_COLOR_DARK_YELLOW    = 13,
+    LC_COLOR_CYAN           = 14,
+    LC_COLOR_DARK_CYAN      = 15,
+} lccolor;
+
+/** 
+ * @brief Change console color.
+ * 
+ * @param[in] sep separator
+*/
+extern void lccol(lccolor text, lccolor bg);
+
 
 /* Files */
 
