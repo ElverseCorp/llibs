@@ -3,7 +3,7 @@
 #include <str.h>
 #include <string.h>
 
-lsz lslen(lc* str) {
+lsz lslen(const lc* str) {
     lsz len = 0;
     while (*str != '\0') {
         if ((*str & 0xC0) != 0x80) {
@@ -14,7 +14,7 @@ lsz lslen(lc* str) {
     return len;
 }
 
-lsz lssize(lc* str) {
+lsz lssize(const lc* str) {
     lsz size = 0;
     while (*str != '\0') {
         ++size; ++str;
@@ -22,7 +22,7 @@ lsz lssize(lc* str) {
     return size;
 }
 
-lsz lssizen(lc* str, lsz n) {
+lsz lssizen(const lc* str, lsz n) {
     lsz size = 0;
     while (*str != '\0' && n) {
         if ((*str & 0xC0) != 0x80) {
@@ -40,10 +40,10 @@ lsz lssizen(lc* str, lsz n) {
     return size;
 }
 
-lbool lscmp(lc* str1, lc* str2) {
+lbool lscmp(const lc* str1, const lc* str2) {
     return !(lbool)(memcmp(str1, str2, lssize(str1)));
 }
 
-lbool lscpy(lc* str1, const lc* str2) {
-    return !(lbool)(memcpy(str1, str2, lssize(str1)));
+void lscpy(lc* dest, const lc* src) {
+    memcpy(dest, src, lssize(src));
 }

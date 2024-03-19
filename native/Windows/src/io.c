@@ -25,36 +25,31 @@ lerr lcio_init(void) {
 }
 
 
-void lcout(lc str[]) {
+void lcout(const lc str[]) {
     WriteConsoleA(hcout, str, lssize(str), NULL, NULL);
 }
 
 
-void lcoutn(lc str[], lsz len) {
+void lcoutn(const lc str[], lsz len) {
     WriteConsoleA(hcout, str, lssizen(str, len), NULL, NULL);
 }
 
 
-void lcerr(lc str[]) {
+void lcerr(const lc str[]) {
     WriteConsoleA(hcerr, str, lslen(str), NULL, NULL);
 }
 
 
-void lcerrn(lc str[], lsz len) {
+void lcerrn(const lc str[], lsz len) {
     WriteConsoleA(hcerr, str, lssizen(str, len), NULL, NULL);
 }
 
-void lcin(lc* dest, lc sep) {
-    lc sym;
-    do {
-        //fread(&sym, sizeof(lc), 1, stdin); 
-        (*dest) = sym;
-        ++dest;
-    } while (sym != sep);
+void lcin(const lc* dest, lc sep) {
+
 }
 
 
-void lcinn(lc* dest, lsz len) {
+void lcinn(const lc* dest, lsz len) {
     ReadConsoleW(hcin, dest, len, NULL, NULL);
 }
 

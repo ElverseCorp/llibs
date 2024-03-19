@@ -31,7 +31,7 @@ extern lerr lcio_init(void);
  * 
  * @param[in] str string address 
 */
-extern void lcout(lc str[]);
+extern void lcout(const lc str[]);
 
 /** 
  * @brief Prints len characters in the console in the coding UTF-8.
@@ -40,7 +40,7 @@ extern void lcout(lc str[]);
  * @param[in] str string address
  * @param[in] len number of symbols
 */
-extern void lcoutn(lc str[], lsz len);
+extern void lcoutn(const lc str[], lsz len);
 
 /** 
  * @brief Prints a line in the UTF-8 encoding console error stream
@@ -49,7 +49,7 @@ extern void lcoutn(lc str[], lsz len);
  * 
  * @param[in] str string address 
 */
-extern void lcerr(lc str[]);
+extern void lcerr(const lc str[]);
 
 /** 
  * @brief Prints len characters in the console error stream in the coding UTF-8.
@@ -58,7 +58,7 @@ extern void lcerr(lc str[]);
  * @param[in] str string address
  * @param[in] len number of symbols
 */
-extern void lcerrn(lc str[], lsz len);
+extern void lcerrn(const lc str[], lsz len);
 
 /** 
  * @brief Receive string in UTF-8 from console to the feet of sep
@@ -67,7 +67,7 @@ extern void lcerrn(lc str[], lsz len);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void lcin(lc* dest, lc sep);
+extern void lcin(const lc* dest, const lc sep);
 
 /** 
  * @brief Receive len symbols from console in UTF-8
@@ -76,7 +76,7 @@ extern void lcin(lc* dest, lc sep);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void lcinn(lc* dest, lsz len);
+extern void lcinn(const lc* dest, lsz len);
 
 /** 
  * @brief Color type.

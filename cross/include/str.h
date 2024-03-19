@@ -28,7 +28,7 @@
   * @return Lenght of the string
   * 
   */
-extern lsz lslen(lc* str);
+extern lsz lslen(const lc* str);
 
 /** 
   * @brief Calculate size in bytes of certain string in UTF-8
@@ -37,7 +37,7 @@ extern lsz lslen(lc* str);
   * @return Size in bytes
   * 
   */
-extern lsz lssize(lc* str);
+extern lsz lssize(const lc* str);
 
 /** 
   * @brief Calculate size in bytes based on number of characters
@@ -47,7 +47,7 @@ extern lsz lssize(lc* str);
   * @return Size in bytes
   * 
   */
-extern lsz lssizen(lc* str, lsz n);
+extern lsz lssizen(const lc* str, lsz n);
 
 /** 
   * @brief Compare two strings in UTF-8
@@ -57,7 +57,7 @@ extern lsz lssizen(lc* str, lsz n);
   * @return true if the are equual, else false
   * 
   */
-extern lbool lscmp(lc* str1, lc* str2);
+extern lbool lscmp(const lc* str1, const lc* str2);
 
 /** 
   * @brief Copy one string to another
