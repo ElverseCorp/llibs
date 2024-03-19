@@ -1,5 +1,7 @@
 /* Include llibs.h header */ 
 #include <llibs.h>
+#include <str.h>
+#include <string.h>
 
 lsz lslen(lc* str) {
     lsz len = 0;
@@ -36,4 +38,12 @@ lsz lssizen(lc* str, lsz n) {
         ++str; ++size;
     }
     return size;
+}
+
+lbool lscmp(lc* str1, lc* str2) {
+    return !(lbool)(memcmp(str1, str2, lssize(str1)));
+}
+
+lbool lscpy(lc* str1, const lc* str2) {
+    return !(lbool)(memcpy(str1, str2, lssize(str1)));
 }

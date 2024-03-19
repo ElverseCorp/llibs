@@ -1,5 +1,5 @@
-#ifndef LLIBS_FRAMEWORK_FILE_H_
-#define LLIBS_FRAMEWORK_FILE_H_
+#ifndef LLIBS_FRAMEWORK_DIR_H_
+#define LLIBS_FRAMEWORK_DIR_H_
 
 /**************************************************************************//**
  * @file     file.h
@@ -17,6 +17,6 @@
  * 
  * @param[in] dirname name of directory in UTF-8 encode
 */
-extern lerr ldircreate(lc dirname[]);
+extern lerr ldirmake(lc dirname[]);
 
-#endif // LLIBS_FRAMEWORK_FILE_H_
+#endif // LLIBS_FRAMEWORK_DIR_H_
