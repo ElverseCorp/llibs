@@ -40,10 +40,9 @@ extern void* lcalloc(lsz num, lsz size);
   * The principle of operation is similar to calloc() 
   * 
   * @param[in] mem current memory address
-  * @param[in] num number of elements.
   * @param[in] size size of every element. 
   * @return returns the address of the allocated memory.
   */
-extern void* lrealloc(void* mem, lsz num, lsz size);
+extern void* lrealloc(void* mem, lsz size);
 
 #endif // LLIBS_FRAMEWORK_MEM_H_
