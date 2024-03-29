@@ -103,7 +103,8 @@ typedef enum {
 /** 
  * @brief Change console color.
  * 
- * @param[in] sep separator
+ * @param[in] text text color
+ * @param[in] bg background color
 */
 extern void lccol(lccolor text, lccolor bg);
 
