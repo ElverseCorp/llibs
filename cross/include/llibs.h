@@ -47,6 +47,9 @@
 #include "dir.h"
 #include "main.h"
 
+/* Experimental */
+#include "dtypes.h"
+
 extern lerr llibs_init(void); 
 
 /* Include external submodules */

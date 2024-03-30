@@ -3,7 +3,7 @@
 
 /**************************************************************************//**
  * @file     types.h
- * @brief    Project L - Llibs, cross-platform framework / main.h
+ * @brief    Project L - Llibs, cross-platform framework / types.h
  * @version  V0.2.0
  * @date     5. Jan 2024
  * @author   Matvey Rybalkin
