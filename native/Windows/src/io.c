@@ -44,12 +44,12 @@ void lcerrn(const lc str[], lsz len) {
     WriteConsoleA(hcerr, str, lssizen(str, len), NULL, NULL);
 }
 
-void lcin(const lc* dest, lc sep) {
+void lcin(lc* dest, lc sep) {
 
 }
 
 
-void lcinn(const lc* dest, lsz len) {
+void lcinn(lc* dest, lsz len) {
     ReadConsoleW(hcin, dest, len, NULL, NULL);
 }
 
@@ -111,15 +111,17 @@ struct lfile {
     li64 len;   // number of symbols
 };
 
-lerr lfopen(lc filename[], lfile* file) {
+/* Not finished functions */
 
+lerr lfopen(lc filename[], lfile* file) {
+    return L_OK;
 }
 
 lerr lfget(lfile* file) {
-
+    return L_OK;
 }
 
 
 lerr lfclose(lfile* file) {
-    
+    return L_OK;
 }

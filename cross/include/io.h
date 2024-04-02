@@ -67,7 +67,7 @@ extern void lcerrn(const lc str[], lsz len);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void lcin(const lc* dest, const lc sep);
+extern void lcin(lc* dest, const lc sep);
 
 /** 
  * @brief Receive len symbols from console in UTF-8
@@ -76,7 +76,7 @@ extern void lcin(const lc* dest, const lc sep);
  * @param[in] dest destination address
  * @param[in] sep separator
 */
-extern void lcinn(const lc* dest, lsz len);
+extern void lcinn(lc* dest, lsz len);
 
 /** 
  * @brief Color type.

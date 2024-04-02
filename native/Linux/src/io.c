@@ -10,22 +10,22 @@ lerr lcio_init(void) {
 }
 
 
-void lcout(lc str[]) {
+void lcout(const lc str[]) {
     fwrite(str, sizeof(lc), lssize(str), stdout);
 }
 
 
-void lcoutn(lc str[], lsz len) {
+void lcoutn(const lc str[], lsz len) {
     fwrite(str, sizeof(lc), lssizen(str, len), stdout);
 }
 
 
-void lcerr(lc str[]) {
+void lcerr(const lc str[]) {
     fwrite(str, sizeof(lc), lssize(str), stderr);
 }
 
 
-void lcerrn(lc str[], lsz len) {
+void lcerrn(const lc str[], lsz len) {
     fwrite(str, sizeof(lc), lssizen(str, len), stderr);
 }
 
@@ -51,15 +51,17 @@ struct lfile {
     li64 len;   // number of symbols
 };
 
-lerr lfopen(lc filename[], lfile* file) {
+/* Not finished functions */
 
+lerr lfopen(lc filename[], lfile* file) {
+    return L_OK;
 }
 
 lerr lfget(lfile* file) {
-
+    return L_OK;
 }
 
 
 lerr lfclose(lfile* file) {
-    
+    return L_OK;
 }
