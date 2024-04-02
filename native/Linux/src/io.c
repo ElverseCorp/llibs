@@ -91,8 +91,8 @@ const static lc* color_bg_lookup[] = {
 };
 
 void lccol(lccolor text, lccolor bg) {
-    lcout(color_text_lookup[text]);
     lcout(color_bg_lookup[bg]);
+    lcout(color_text_lookup[text]);
 }
 
 /* Files */
