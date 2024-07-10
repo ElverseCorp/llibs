@@ -4,6 +4,10 @@
 
 /* Files */
 
-lerr ldircreate(lc dirname[]) {
+lerr ldirmk(lc dirname[]) {
     return (lerr)!(CreateDirectoryA((char*)dirname, NULL) || GetLastError());
+}
+
+lerr ldirrm(lc dirname[]) {
+    return (lerr)!(RemoveDirectoryA((char*)dirname) || GetLastError());
 }

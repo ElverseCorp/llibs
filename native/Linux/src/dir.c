@@ -5,6 +5,10 @@
 
 /* Files */
 
-lerr ldircreate(lc dirname[]) {
-    return (lerr)(mkdir("new_directory", 0777) == -1);
+lerr ldirmk(lc dirname[]) {
+    return (lerr)!(mkdir(dirname, 0755) == 0);
+}
+
+lerr ldirrm(lc dirname[]) {
+    return (lerr)!(rmdir(dirname) == 0);
 }

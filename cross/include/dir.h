@@ -12,11 +12,17 @@
 /* Must be included in llibs.h */
 
 /** 
- * @brief Create directory based on the name.
- * 
+ * @brief Create directory based on the path.
  * 
  * @param[in] dirname name of directory in UTF-8 encode
 */
-extern lerr ldirmake(lc dirname[]);
+extern lerr ldirmk(const lc dirname[]);
+
+/** 
+ * @brief Remove directory based on the path.
+ * 
+ * @param[in] dirname name of directory in UTF-8 encode
+*/
+extern lerr ldirrm(const lc dirname[]);
 
 #endif // LLIBS_FRAMEWORK_DIR_H_
