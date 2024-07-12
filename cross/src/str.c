@@ -41,9 +41,9 @@ lsz lssizen(const lc* str, lsz n) {
 }
 
 lbool lscmp(const lc* str1, const lc* str2) {
-    return !(lbool)(memcmp(str1, str2, lssize(str1)));
+    return !(lbool)(memcmp(str1, str2, lssize(str1) + 1));
 }
 
 void lscpy(lc* dest, const lc* src) {
-    memcpy(dest, src, lssize(src));
+    memcpy(dest, src, lssize(src) + 1);
 }
