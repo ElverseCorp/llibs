@@ -4,10 +4,10 @@
 
 /* Files */
 
-lerr ldirmk(lc dirname[]) {
+lerr ldirmk(const lc dirname[]) {
     return (lerr)!(CreateDirectoryA((char*)dirname, NULL) || GetLastError());
 }
 
-lerr ldirrm(lc dirname[]) {
+lerr ldirrm(const lc dirname[]) {
     return (lerr)!(RemoveDirectoryA((char*)dirname) || GetLastError());
 }
