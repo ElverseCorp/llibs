@@ -8,7 +8,7 @@
 
 static HANDLE   hcout   = NULL,
                 hcin    = NULL,
-                hcerr    = NULL;
+                hcerr   = NULL;
 
 lerr lcio_init(void) {
     hcout = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -106,22 +106,71 @@ void lccol(lccolor text, lccolor bg) {
 
 /* Files */
 
+// native code.
 struct lfile {
-    lc* data;   // data pointer
-    li64 len;   // number of symbols
+    HANDLE fileHandle;
+    HANDLE mapHandle;
+    LPCVOID mapView;
+    int64_t size;
 };
 
-/* Not finished functions */
+static HANDLE llibs_GetFileHandle(const lc filename[]) {
+    return CreateFileA((char*)filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+} /* I'm not sure about this argument lchar_t filename[] */
 
-lerr lfopen(lc filename[], lfile* file) {
+static HANDLE llibs_GetMapHandle(HANDLE fileHandle) {
+    return CreateFileMappingA(fileHandle, NULL, PAGE_READONLY, 0, 0, NULL);
+}
+
+static LPCVOID llibs_GetMapView(HANDLE mapHandle) {
+    return MapViewOfFile(mapHandle, FILE_MAP_READ, 0, 0, 0);
+}
+
+static LONGLONG llibs_GetFileSize(HANDLE fileHandle) {
+    LARGE_INTEGER size;
+    if (!GetFileSizeEx(fileHandle, &size)) {
+        return -1;
+    }
+    return size.QuadPart;
+}
+
+lerr lfopen(const lc filename[], lfile* file) {
+    file->fileHandle = llibs_GetFileHandle(filename);
+    if (file->fileHandle == NULL) { 
+        CloseHandle(file->fileHandle);
+        return L_ERROR; 
+    }
+    file->mapHandle = llibs_GetMapHandle(file->fileHandle);
+    if (file->mapHandle == NULL) {
+        CloseHandle(file->mapHandle);
+        CloseHandle(file->fileHandle);
+        return L_ERROR;
+    };
+    file->mapView = llibs_GetMapView(file->mapHandle);
+    if (file->mapView == NULL) {
+        UnmapViewOfFile(file->mapView);
+        CloseHandle(file->mapHandle);
+        CloseHandle(file->fileHandle);
+        return L_ERROR;
+    };
+    file->size = llibs_GetFileSize(file->fileHandle);
+    if (file->size == -1) {
+        UnmapViewOfFile(file->mapView);
+        CloseHandle(file->mapHandle);
+        CloseHandle(file->fileHandle);
+        return L_ERROR; 
+    };
     return L_OK;
 }
 
-lerr lfget(lfile* file) {
+lerr lfget(lc* pointer, lfile* file) {
+    pointer = (lc*)(file->mapView);
     return L_OK;
 }
-
 
 lerr lfclose(lfile* file) {
+    UnmapViewOfFile(file->mapView);
+    CloseHandle(file->mapHandle);
+    CloseHandle(file->fileHandle);
     return L_OK;
 }

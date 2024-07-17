@@ -123,14 +123,15 @@ typedef struct lfile lfile;
  * @param[in] filename name of file in UTF-8 encode
  * @param[out] file file structure pointer
 */
-extern lerr lfopen(lc filename[], lfile* file);
+extern lerr lfopen(const lc filename[], lfile* file);
 
 /** 
  * @brief Gets the pointer to file data
  *
+ * @param[in] pointer target pointer
  * @param[in] file file structure pointer
 */
-extern lerr lfget(lfile* file);
+extern lerr lfget(lc* pointer, lfile* file);
 
 /** 
  * @brief Closes file and clear file structure
@@ -146,6 +147,6 @@ extern lerr lfclose(lfile* file);
  * @param[in] filename name of file in UTF-8 encode
  * @param[out] file file structure pointer
 */
-extern lerr lfcreate(lc filename[], lfile* file);
+// extern lerr lfcreate(const lc filename[], lfile* file);
 
 #endif // LLIBS_FRAMEWORK_IO_H_

@@ -112,7 +112,6 @@ lerr lfget(lfile* file) {
     return L_OK;
 }
 
-
 lerr lfclose(lfile* file) {
     return L_OK;
 }
