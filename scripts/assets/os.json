@@ -1,9 +1,0 @@
-{
-    "aix":      ["native/IBM_AIX"],
-    "darwin":   ["native/macOS"],
-    "freebsd":  ["native/FreeBSD"],
-    "linux":    ["native/Linux"],
-    "openbsd":  ["native/OpenBSD"],
-    "sunos":    ["native/SunOS"],
-    "win32":    ["native/Windows"]
-}
