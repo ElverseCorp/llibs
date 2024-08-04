@@ -106,71 +106,60 @@ void lccol(lccolor text, lccolor bg) {
 
 /* Files */
 
-// native code.
-struct lfile {
-    HANDLE fileHandle;
-    HANDLE mapHandle;
-    LPCVOID mapView;
-    int64_t size;
-};
-
 static HANDLE llibs_GetFileHandle(const lc filename[]) {
     return CreateFileA((char*)filename, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
-} /* I'm not sure about this argument lchar_t filename[] */
-
-static HANDLE llibs_GetMapHandle(HANDLE fileHandle) {
-    return CreateFileMappingA(fileHandle, NULL, PAGE_READONLY, 0, 0, NULL);
 }
 
-static LPCVOID llibs_GetMapView(HANDLE mapHandle) {
-    return MapViewOfFile(mapHandle, FILE_MAP_READ, 0, 0, 0);
+static HANDLE llibs_GetMapHandle(HANDLE sys0_handle) {
+    return CreateFileMappingA(sys0_handle, NULL, PAGE_READONLY, 0, 0, NULL);
 }
 
-static LONGLONG llibs_GetFileSize(HANDLE fileHandle) {
+static LPCVOID llibs_GetMapView(HANDLE sys1_handle) {
+    return MapViewOfFile(sys1_handle, FILE_MAP_READ, 0, 0, 0);
+}
+
+static LONGLONG llibs_GetFileSize(HANDLE sys0_handle) {
     LARGE_INTEGER size;
-    if (!GetFileSizeEx(fileHandle, &size)) {
+    if (!GetFileSizeEx(sys0_handle, &size)) {
         return -1;
     }
     return size.QuadPart;
 }
 
 lerr lfopen(const lc filename[], lfile* file) {
-    file->fileHandle = llibs_GetFileHandle(filename);
-    if (file->fileHandle == NULL) { 
-        CloseHandle(file->fileHandle);
-        return L_ERROR; 
+    file->sys0_handle = llibs_GetFileHandle(filename);
+    if (file->sys0_handle == INVALID_HANDLE_VALUE) {
+        return 1;
     }
-    file->mapHandle = llibs_GetMapHandle(file->fileHandle);
-    if (file->mapHandle == NULL) {
-        CloseHandle(file->mapHandle);
-        CloseHandle(file->fileHandle);
-        return L_ERROR;
-    };
-    file->mapView = llibs_GetMapView(file->mapHandle);
-    if (file->mapView == NULL) {
-        UnmapViewOfFile(file->mapView);
-        CloseHandle(file->mapHandle);
-        CloseHandle(file->fileHandle);
-        return L_ERROR;
-    };
-    file->size = llibs_GetFileSize(file->fileHandle);
+    file->sys1_handle = llibs_GetMapHandle(file->sys0_handle);
+    if (file->sys1_handle == NULL) {
+        CloseHandle(file->sys0_handle);
+        return 2;
+    }
+    file->data_handle = llibs_GetMapView(file->sys1_handle);
+    if (file->data_handle == NULL) {
+        CloseHandle(file->sys1_handle);
+        CloseHandle(file->sys0_handle);
+        return 3;
+    }
+    file->size = llibs_GetFileSize(file->sys0_handle);
     if (file->size == -1) {
-        UnmapViewOfFile(file->mapView);
-        CloseHandle(file->mapHandle);
-        CloseHandle(file->fileHandle);
-        return L_ERROR; 
-    };
+        UnmapViewOfFile(file->data_handle);
+        CloseHandle(file->sys1_handle);
+        CloseHandle(file->sys0_handle);
+        return 4;
+    }
     return L_OK;
 }
 
-lerr lfget(lc* pointer, lfile* file) {
-    pointer = (lc*)(file->mapView);
+lerr lfget(lc** pointer, lfile* file) {
+    *pointer = (lc*)(file->data_handle);
     return L_OK;
 }
 
 lerr lfclose(lfile* file) {
-    UnmapViewOfFile(file->mapView);
-    CloseHandle(file->mapHandle);
-    CloseHandle(file->fileHandle);
+    UnmapViewOfFile(file->data_handle);
+    CloseHandle(file->sys1_handle);
+    CloseHandle(file->sys0_handle);
     return L_OK;
 }

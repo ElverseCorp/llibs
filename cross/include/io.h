@@ -112,9 +112,15 @@ extern void lccol(lccolor text, lccolor bg);
 /* Files */
 
 /** 
- * @brief Native structure for file data
+ * @brief Default structure. Cross-platform that can be used everywhere.
  */
-typedef struct lfile lfile;
+typedef struct {
+    // can be extended.
+    li64 size;
+    const void* data_handle;
+    void* sys0_handle;  // aka mapHandle
+    void* sys1_handle;  // aka fileHandle
+} lfile;
 
 /** 
  * @brief Opens a file by name and stores its data in file
@@ -131,7 +137,7 @@ extern lerr lfopen(const lc filename[], lfile* file);
  * @param[in] pointer target pointer
  * @param[in] file file structure pointer
 */
-extern lerr lfget(lc* pointer, lfile* file);
+extern lerr lfget(lc** pointer, lfile* file);
 
 /** 
  * @brief Closes file and clear file structure
