@@ -5,6 +5,12 @@
 /* for Memory managment */
 #include <string.h>
 
+/* General */
+
+lerr lmemchk(void* pointer) {
+    return (lerr)(pointer == NULL);
+}
+
 /* Allocation */
 
 void* lmalloc(lsz size) {

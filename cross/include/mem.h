@@ -13,6 +13,19 @@
 
 /* Standard functions */
 
+/// @brief Error code of invalid malloc is the same with L_ERROR
+#define L_ERROR_MALLOC L_ERROR
+
+/** 
+  * @brief Checks access to the allocated memory block.
+  * 
+  * The principle of operation is similar (void* == NULL)
+  * 
+  * @param[in] pointer data pointer.
+  * @return returns L_ERROR or L_OK
+  */
+extern lerr lmemchk(void* pointer);
+
 /** 
   * @brief Dynamically allocate a certain amount of memory bytes.
   * 
@@ -40,7 +53,7 @@ extern void* lcalloc(lsz num, lsz size);
   * The principle of operation is similar to calloc() 
   * 
   * @param[in] mem current memory address
-  * @param[in] size size of every element. 
+  * @param[in] size new size of memory 
   * @return returns the address of the allocated memory.
   */
 extern void* lrealloc(void* mem, lsz size);
