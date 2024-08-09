@@ -45,4 +45,45 @@ extern void* lcalloc(lsz num, lsz size);
   */
 extern void* lrealloc(void* mem, lsz size);
 
+/**
+ * @brief Copy a block of memory.
+ *
+ * This function copies a specified number of bytes from the source address to the destination address.
+ * The behavior is undefined if the source and destination memory blocks overlap.
+ *
+ * @param[out] dest Pointer to the destination memory block where the data will be copied.
+ * @param[in] src Pointer to the source memory block from which the data will be copied.
+ * @param[in] size Number of bytes to copy.
+ * @return Returns a pointer to the destination memory block.
+ */
+extern void* lmemcpy(void* restrict dest, void* restrict src, lsz size);
+
+/**
+ * @brief Compare two blocks of memory.
+ *
+ * This function compares a specified number of bytes from two memory blocks.
+ * It returns an integer less than, equal to, or greater than zero if the first block is found,
+ * respectively, to be less than, to match, or be greater than the second block.
+ *
+ * @param[in] data1 Pointer to the first memory block.
+ * @param[in] data2 Pointer to the second memory block.
+ * @param[in] size Number of bytes to compare.
+ * @return Returns an integer indicating the relationship between the two blocks of memory.
+ */
+extern int lmemcmp(const void* data1, const void* data2, lsz size);
+
+/**
+ * @brief Move a block of memory.
+ *
+ * This function moves a specified number of bytes from the source address to the destination address.
+ * Unlike `lmemcpy`, it handles overlapping memory blocks by ensuring that the original data is copied
+ * before the destination is overwritten.
+ *
+ * @param[out] dest Pointer to the destination memory block where the data will be moved.
+ * @param[in] src Pointer to the source memory block from which the data will be moved.
+ * @param[in] size Number of bytes to move.
+ * @return Returns a pointer to the destination memory block.
+ */
+extern void* lmemmove(void* dest, const void* src, lsz size);
+
 #endif // LLIBS_FRAMEWORK_MEM_H_
