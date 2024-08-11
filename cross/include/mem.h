@@ -11,10 +11,10 @@
 
 /* Must be included in llibs.h */
 
-/* Standard functions */
-
 /// @brief Error code of invalid malloc is the same with L_ERROR
 #define L_ERROR_MALLOC L_ERROR
+
+/* Standard functions */
 
 /** 
   * @brief Checks access to the allocated memory block.
