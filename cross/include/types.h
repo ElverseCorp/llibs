@@ -32,6 +32,9 @@ typedef bool lbool;
 typedef int32_t li;
 typedef size_t lsz;
 
+typedef double lf64;
+typedef double lf32;
+typedef float lf16;
 
 /* Chars */
 typedef uint8_t  lc8;
