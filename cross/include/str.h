@@ -19,6 +19,11 @@
   */
 #define X(str) (lc *)(str)
 
+/** 
+  * @brief UTF-8 one-byte character prefix
+  */
+#define Y(char) (lc)(char)
+
 /* Standard functions */
 
 /** 
