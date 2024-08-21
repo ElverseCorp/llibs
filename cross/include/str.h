@@ -24,6 +24,11 @@
   */
 #define Y(char) (lc)(char)
 
+/** 
+  * @brief UTF-8 4-byte character prefix
+  */
+#define Z(char) (lu64)(char)
+
 /* Standard functions */
 
 /** 
