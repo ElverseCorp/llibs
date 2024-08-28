@@ -53,7 +53,7 @@ void lcinn(lc* dest, lsz len) {
     ReadConsoleW(hcin, dest, len, NULL, NULL);
 }
 
-const static WORD color_text_lookup[] = {
+static const WORD color_text_lookup[] = {
     [(int)(LC_COLOR_BLACK)] = 0x00, [(int)(LC_COLOR_WHITE)] = 0x0F,
     
     [(int)(LC_COLOR_RED)] = FOREGROUND_RED | FOREGROUND_INTENSITY, 
@@ -76,7 +76,7 @@ const static WORD color_text_lookup[] = {
     [(int)(LC_COLOR_DARK_CYAN)] = FOREGROUND_BLUE | FOREGROUND_GREEN,
 };
 
-const static WORD color_bg_lookup[] = {
+static const WORD color_bg_lookup[] = {
     [(int)(LC_COLOR_BLACK)] = 0x00, [(int)(LC_COLOR_WHITE)] = 0x0F,
     
     [(int)(LC_COLOR_RED)] = BACKGROUND_RED | BACKGROUND_INTENSITY, 
