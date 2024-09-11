@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 3.10)
-project(Llibs)
+project(llibs)
 
 set(CMAKE_C_STANDARD 11)
 
 add_library(llibs STATIC)
 
-target_compile_options(llibs PRIVATE ${WINDOWS_COMPILE_FLAGS})
+# target_compile_options(llibs PRIVATE ${WINDOWS_COMPILE_FLAGS})
 target_include_directories(llibs PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/cross/include
 )
