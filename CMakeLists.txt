@@ -12,6 +12,3 @@ target_include_directories(llibs PUBLIC
 
 file(GLOB_RECURSE LLIBS_SRC "src/*.c" "cross/src/*.c" "native/${CMAKE_SYSTEM_NAME}/src/*.c")
 target_sources(llibs PRIVATE ${LLIBS_SRC})
-
-add_subdirectory(external/lingua)
-target_link_libraries(llibs PUBLIC lingua)
