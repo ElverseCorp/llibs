@@ -38,18 +38,17 @@
 
 #define ELLIPSE_VERSION 2.0
 #define ELLIPSE_VERSION_CSTR "0.2.0"
+#define ELLIPSE_LANGUAGE_C
 #ifdef ELLIPSE_LANGUAGE_CPP
 #   undef ELLIPSE_LANGUAGE_CPP
 #endif
 #define ELLIPSE_LANGUAGE_CSTR "C"
 
 
-#define _ELLIPSE_MAKE_NAME(name) ll_##name
-#define _ELLIPSE_MAKE_MACROS(name) LL_##name
-
 // Include every header file
 #include <c/types.h>
 #include <c/io.h>
+#include <c/str.h>
 
 #else
 #   error "[ELLIPSE] ERROR: This header file is designed for use in C files. HELP: Use llibs.hpp instead."
