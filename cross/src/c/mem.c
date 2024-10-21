@@ -6,13 +6,11 @@
 
 #include <mem.h>
 
-
-
 memory_t allocate(size_t num, size_t sizeof_element){
     memory_t memory;
-    memory.data = calloc(num, sizeof_element);
     memory.used = 0;
 
+    memory.data = calloc(num, sizeof_element);
     if (memory.data == NULL) {
         memory.allocated = 0;
         return memory;
@@ -22,9 +20,18 @@ memory_t allocate(size_t num, size_t sizeof_element){
 }
 
 memory_t reallocate(memory_t* data, size_t num, size_t sizeof_element){
-#ifdef _recalloc
-
+    memory_t memory;
+    memory.used = 0;
+    
+#ifdef recalloc
+    memory.data = realloc(data->data, num, sizeof_element);
+#elif defined(_recalloc) 
+    memory.data = _recalloc(data->data, num, sizeof_element);
+#else
+    memory.data = realloc(num, sizeof_element);
 #endif
+    void* new_data = (data->data + data->allocated);
+    mem_set()
 }
 
 memory_t reallocate_force(memory_t* data, size_t num, size_t sizeof_element){
@@ -57,11 +64,13 @@ void mem_free(memory_t* mem) {
 // Generic
 
 void* g_calloc(size_t num, size_t sizeof_element){
-
+    return calloc(num, sizeof_element);
 }
+
 void* g_recalloc(void* data, size_t num, size_t sizeof_element){
-
+    void* data = 
 }
+
 void g_free(void* data){
 
 }

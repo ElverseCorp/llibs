@@ -67,7 +67,7 @@ extern str_t* str_concatenate(str_t dest, cstr_t src[static 1]);
 extern void str_copy(str_t dest, cstr_t string1[static 1]);
 extern void str_move(str_t dest, str_t src);
 extern len_t str_find(cstr_t string[static 1], char_t character);
-extern len_t str_substr(cstr_t string[static 1], cstr_t substring[static 1])
+extern len_t str_substr(cstr_t string[static 1], cstr_t substring[static 1]);
 
 // UTF-8
 
