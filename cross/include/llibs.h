@@ -47,8 +47,22 @@
 
 // Include every header file
 #include <c/types.h>
-#include <c/io.h>
 #include <c/str.h>
+#include <c/mem.h>
+#include <c/time.h>
+#include <c/bits.h>
+
+#include <c/io.h>
+#include <c/threads.h>
+#include <c/locale.h>
+
+// Math
+#include <c/main.h>
+#include <c/math/complex.h>
+
+// Advanced
+#include <c/structures/stack.h>
+#include <c/structures/vector.h>
 
 #else
 #   error "[ELLIPSE] ERROR: This header file is designed for use in C files. HELP: Use llibs.hpp instead."

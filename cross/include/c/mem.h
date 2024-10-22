@@ -32,7 +32,7 @@ extern memory_t reallocate(memory_t* data, size_t num, size_t sizeof_element);
 extern memory_t reallocate_force(memory_t* data, size_t num, size_t sizeof_element);
 
 extern void mem_copy(memory_t* mem1, memory_t mem2);
-extern void mem_set(memory_t* mem1, memory_t mem2);
+extern void mem_set(memory_t* mem1, u8_t data);
 extern void mem_move(memory_t* mem1, memory_t* mem2);
 extern ssize_t mem_compare(memory_t mem1, memory_t mem2);
 
@@ -42,6 +42,11 @@ extern void mem_move_force(memory_t* mem1, memory_t* mem2);
 extern void mem_optimize(memory_t* mem);
 
 extern void mem_free(memory_t* mem);
+
+// Global state functions
+
+extern void mem_global_free(void);
+extern void mem_dump();                     // TODO: file io
 
 // Generic functions
 

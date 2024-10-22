@@ -45,8 +45,6 @@
 #define _ELLIPSE_MAKE_MACROS(name) name
 
 // Include every header file
-#include <cpp/types.hpp>
-#include <cpp/io.hpp>
 
 #else
 #   error "[ELLIPSE] ERROR: This header file is designed for use in C++ files. HELP: Use llibs.h instead."

@@ -1,5 +1,5 @@
 #include <c/str.h>
-
+#include <c/types.h>
 
 /**
  * @brief To find the length of a
@@ -40,7 +40,7 @@ len_t s_utf8_len(cstr_utf8_t string) {
 
 // unsafe 
 static bool _is_ascii_utf8(void* data) {
-    for ()
+
 }
 
 static bool _is_utf16le(void* data) {

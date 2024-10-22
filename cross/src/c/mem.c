@@ -1,10 +1,8 @@
-#include <stdlib.h>
+#include <c/mem.h>
 
-#ifdef NULL
-#   undef NULL
-#endif
-
-#include <mem.h>
+// From stdlib.h
+extern void *calloc (size_t, size_t);
+extern void *realloc (void*, size_t);
 
 memory_t allocate(size_t num, size_t sizeof_element){
     memory_t memory;
@@ -23,15 +21,15 @@ memory_t reallocate(memory_t* data, size_t num, size_t sizeof_element){
     memory_t memory;
     memory.used = 0;
     
-#ifdef recalloc
-    memory.data = realloc(data->data, num, sizeof_element);
-#elif defined(_recalloc) 
-    memory.data = _recalloc(data->data, num, sizeof_element);
-#else
-    memory.data = realloc(num, sizeof_element);
-#endif
+    memory.data = realloc(data->data, sizeof_element * num);
+
+    if (memory.data == NULL) {
+        return memory;
+    }
+
     void* new_data = (data->data + data->allocated);
-    mem_set()
+    // mem_set()
+    // TODO: FINISH IT.
 }
 
 memory_t reallocate_force(memory_t* data, size_t num, size_t sizeof_element){
@@ -61,6 +59,8 @@ void mem_optimize(memory_t* mem){
 
 void mem_free(memory_t* mem) {
 
+}
+
 // Generic
 
 void* g_calloc(size_t num, size_t sizeof_element){
@@ -68,7 +68,7 @@ void* g_calloc(size_t num, size_t sizeof_element){
 }
 
 void* g_recalloc(void* data, size_t num, size_t sizeof_element){
-    void* data = 
+    //void* data = 
 }
 
 void g_free(void* data){
