@@ -168,6 +168,37 @@ extern ssize_t mem_compare(memory_t mem1, memory_t mem2);
  */
 extern err_t mem_strip(memory_t* mem);
 
+/////////////////////////////////////////////
+////////// Global memory functions ////////// 
+///////////////////////////////////////////// 
+
+/**
+ * @brief    Gets the total allocated memory size.
+ *
+ * This function returns the total amount of memory currently allocated by the program. 
+ * It includes both used and unused (but allocated) memory, representing the complete 
+ * size of all memory blocks that are managed by the Ellipse memory system.
+ *
+ * @return    The total allocated memory size in bytes.
+ *
+ * @note      This function provides an overview of the memory footprint of the program.
+ */
+extern size_t mem_global_all_resources_size(void);
+
+/**
+ * @brief    Gets the total used memory size.
+ *
+ * This function returns the total amount of memory currently in use by the program. 
+ * It represents only the memory actively used for storing data and excludes any unused 
+ * (but allocated) memory. It can be used to determine how efficiently allocated memory 
+ * is being utilized.
+ *
+ * @return    The total used memory size in bytes.
+ *
+ * @note      This value is always less than or equal to the total allocated memory size.
+ */
+extern size_t mem_global_used_resources_size(void);
+
 /**
  * @brief    Frees all globally allocated memory.
  *
@@ -176,12 +207,12 @@ extern err_t mem_strip(memory_t* mem);
  *
  * @return    An error code of type `err_t`. Returns `OK` on success, non-zero on error.
  */
-extern err_t mem_free_all_resources(void);
+extern err_t mem_global_all_resources_free(void);
 
 /**
  * UNFINISHED!!
  */
-extern err_t mem_dump(void);  // TODO: file io
+extern err_t mem_global_dump(void);  // TODO: file io
 
 /////////////////////////////////////////////
 ///////// Generic memory allocation ///////// 
