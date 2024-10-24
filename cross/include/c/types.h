@@ -343,6 +343,8 @@ typedef enum {
 #ifdef __SIZEOF_FLOAT128__
     TYPE_F128,      ///< Floating point 128-bit `f128_t` (if supported by the system)
 #endif
+    TYPE_AGGREGATE, ///< Udefined data type of a complex type that cannot be expressed using standard C language types. 
+    TYPE_UNKNOWN,   ///< Undefined data type that cannot be uniquely defined, such as `void*`
 } type_t;
 
 /**
