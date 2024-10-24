@@ -43,7 +43,7 @@ typedef struct {
 
 
 /////////////////////////////////////////////
-/////////// Function declaration //////////// 
+//////// Memory allocation functions //////// 
 ///////////////////////////////////////////// 
 
 /**
@@ -104,6 +104,10 @@ extern memory_t reallocate_force(memory_t* data, size_t num, size_t sizeof_eleme
  * @return    An error code of type `err_t`. Returns `OK` if on success, non-zero on error.
  */
 extern err_t freeing(memory_t data);
+
+/////////////////////////////////////////////
+//////// Memory managment functions ///////// 
+///////////////////////////////////////////// 
 
 /**
  * @brief    Copies data from one memory block to another.
@@ -217,6 +221,43 @@ extern void* recalloc_generic(void* data, size_t num, size_t sizeof_element);
  */
 extern void free_generic(void* data);
 
+/////////////////////////////////////////////
+///////////// Memory protection ///////////// 
+///////////////////////////////////////////// 
 
+/**
+ * @brief    Memory access levels for setting memory protection.
+ *
+ * This enumeration defines different levels of access that can be applied to 
+ * a memory block using the `mem_access` function. It includes full, 
+ * read-only, write-only, and denied access modes.
+ */
+typedef enum {
+    MEMORY_ACCESS_FULL          = 0b11,
+    MEMORY_ACCESS_READ          = 0b10,
+    MEMORY_ACCESS_WRITE         = 0b01,
+    MEMORY_ACCESS_DENIED        = 0b00,
+} memory_access_t;
+
+/**
+ * @brief    Sets memory access protection level for a memory block.
+ *
+ * This function modifies the protection level of a given memory block to 
+ * one of the levels defined by `memory_access_t`. The function may fail if 
+ * the underlying system call does not support the requested protection mode.
+ *
+ * @param[in] memory   The memory block whose access level is being changed.
+ * @param[in] level    The access level to be set, defined by `memory_access_t`.
+ *
+ * @return    An error code of type `err_t`. Returns 0 on success, non-zero on failure.
+ *
+ * @note      This function is platform-dependent and relies on system-specific 
+ *            memory protection mechanisms such as `mprotect` for POSIX systems 
+ *            or `VirtualProtect` for Windows.
+ *
+ * @warning   Attempting to access memory after setting `MEMORY_ACCESS_DENIED` 
+ *            will result in a segmentation fault or access violation.
+ */
+extern err_t mem_access(memory_t memory, memory_access_t level);
 
 #endif // ELLIPSE_2_MEM_H_

@@ -9,9 +9,6 @@
  * @author   Matvey Rybalkin
 ******************************************************************************/
 
-#include <stdlib.h>
-#include <stdio.h>
-
 #include <c/types.h>
 #include <c/str.h>
 
