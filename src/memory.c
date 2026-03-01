@@ -13,7 +13,7 @@ void* lalloc(llen num, lsize size_of_element) {
 }
 
 lerr lrealloc(void** ptr, llen num, lsize size_of_element) {
-    if (!*ptr || !num || !size_of_element) return NULL;
+    if (!*ptr || !num || !size_of_element) return LERR_INVALID_ARG;
     void* buff = realloc(*ptr, num * size_of_element);
     if (!buff)
         return LERR_OUT_OF_MEMORY;

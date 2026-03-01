@@ -2,6 +2,7 @@
 #define LSTR_H_
 
 #include "types.h"
+#include "errors.h"
 
 typedef struct {
     char* ptr;

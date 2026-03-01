@@ -1,17 +1,40 @@
-cmake_minimum_required(VERSION 3.10)
-project(llibs)
 
-set(CMAKE_C_STANDARD 11)
+cmake_minimum_required(VERSION 3.10)
+project(
+    "Ellipse Framework"
+    VERSION 2.0
+    DESCRIPTION "Cross-platform for high-perfomance low-level and system functions."
+    LANGUAGES C
+)
+
+set(LLIBS_SRC_FILES 
+	src/memory.c
+	src/str.c
+)
+set(LLIBS_INCLUDE_PATH include/)
+
 
 add_library(llibs STATIC)
 
-# target_compile_options(llibs PRIVATE ${WINDOWS_COMPILE_FLAGS})
-target_include_directories(llibs PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/cross/include
+target_include_directories(llibs PUBLIC ${LLIBS_INCLUDE_PATH})
+target_sources(llibs PRIVATE ${LLIBS_SRC_FILES})
+
+target_compile_options(llibs PRIVATE
+    -Wall                    # Базовые предупреждения
+    -Wextra                  # Дополнительные предупреждения
+    -Wpedantic               # Строгое соответствие стандарту ISO C/C++
+    -Werror                  # Любое предупреждение = ошибка
+    -Wshadow                 # Предупреждение, если переменная перекрывает другую
+    -Wcast-align             # Предупреждение при приведении типов с нарушением выравнивания
+    -Wunused                 # Поиск неиспользуемого кода
+    -Wconversion             # Предупреждение при потере точности (например, double -> int)
+    -Wsign-conversion        # Предупреждение при смешивании signed/unsigned
+    -Wnull-dereference       # Поиск потенциальных разыменований NULL
+    -Wdouble-promotion       # Если float неявно превращается в double
+    -Wformat=2               # Усиленная проверка printf/scanf
+    -Wmisleading-indentation # Проверка подозрительных отступов (как в стиле Apple goto fail)
+    -Wduplicated-cond        # Поиск дублирующихся условий в if/else
+    -Wduplicated-branches    # Поиск одинакового кода в разных ветках if/else
+    -Wlogical-op             # Подозрительные логические операции
+    -fno-strict-aliasing	 # Без агрессивной оптимизации с указателями
 )
-
-file(GLOB_RECURSE LLIBS_SRC "src/*.c" "cross/src/*.c" "native/${CMAKE_SYSTEM_NAME}/src/*.c")
-target_sources(llibs PRIVATE ${LLIBS_SRC})
-
-add_subdirectory(external/lingua)
-target_link_libraries(llibs PUBLIC lingua)

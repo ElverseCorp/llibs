@@ -44,7 +44,7 @@ lerr lstr_destroy(lstr* string){
 lerr lstr_append(lstr* string, llen new_length){
     if (!string || !string->ptr || !new_length) return LERR_INVALID_ARG;
     if (new_length <= string->length) return LERR_OK;
-    if (LREALLOC(&string->ptr, new_length+1, 1) != LERR_OK)
+    if (LREALLOC(string->ptr, new_length+1, 1) != LERR_OK)
         return LERR_OUT_OF_MEMORY;
     string->length = new_length;
     return LERR_OK;
@@ -53,7 +53,7 @@ lerr lstr_append(lstr* string, llen new_length){
 lerr lstr_shrink(lstr* string, llen new_length){
     if (!string || !string->ptr || !new_length) return LERR_INVALID_ARG;
     if (new_length > string->length) return LERR_OK;
-    if (LREALLOC(&string->ptr, new_length+1, 1) != LERR_OK)
+    if (LREALLOC(string->ptr, new_length+1, 1) != LERR_OK)
         return LERR_OUT_OF_MEMORY;
     string->length = new_length;
     return LERR_OK;
@@ -63,7 +63,7 @@ lerr lstr_cstr_set(lstr* string, lcstr new_string){
     if (!string || !string->ptr || !new_string) return LERR_INVALID_ARG;
     llen new_str_len = strlen(new_string);
     if (new_str_len > string->length) {
-        if (LREALLOC(&string->ptr, new_str_len+1, 1) != LERR_OK)
+        if (LREALLOC(string->ptr, new_str_len+1, 1) != LERR_OK)
             return LERR_OUT_OF_MEMORY;
     }
     memcpy(string->ptr, new_string, new_str_len + 1);
