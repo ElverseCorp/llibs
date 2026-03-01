@@ -10,6 +10,7 @@ project(
 set(LLIBS_SRC_FILES 
 	src/memory.c
 	src/str.c
+	src/main.c
 )
 set(LLIBS_INCLUDE_PATH include/)
 

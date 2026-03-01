@@ -6,8 +6,10 @@
 #else
 
 #include "llibs/types.h"
-
-
+#include "llibs/errors.h"
+#include "llibs/memory.h"
+#include "llibs/str.h"
+#include "llibs/main.h"
 
 #endif // __STDC_VERSION__  >= 201112L
 #endif // LLIBS_H_
